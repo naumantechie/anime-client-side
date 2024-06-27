@@ -1,0 +1,16 @@
+@import '../../styles/variables.scss';
+
+.header {
+    background-color: $color-main-light;
+
+    .links-col {
+        a {
+            font-size: 13px;
+
+            &:hover,
+            &:focus {
+                color: $color-pink;
+            }
+        }
+    }
+}

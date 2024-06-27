@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    color: #fff;
+    background-color: #201f31;
+    overflow-x: hidden;
+}
+
+.custom-container {
+    width: 100%;
+    max-width: 1800px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 2rem;
+    padding-left: 2rem;
+}
+
+.section-title {
+    font-size: 26px;
+    line-height: 1.3em;
+    font-weight: 600;
+    color: #ffbade;
+    margin-bottom: 33px;
+}
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+}

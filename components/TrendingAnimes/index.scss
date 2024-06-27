@@ -1,0 +1,84 @@
+@import '../../styles/variables.scss';
+
+.trending-section {
+    .swiper {
+        overflow: visible;
+        padding-right: 24px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -32px;
+            height: 100%;
+            width: 45px;
+            background: $color-main;
+            z-index: 10;
+        }
+    }
+
+    .swiper-slide {
+        display: flex;
+        justify-content: space-between;
+        gap: 7px;
+    }
+
+    .meta {
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .rank {
+        font-size: 20px;
+        font-weight: bold;
+        color: $color-pink;
+        transform: rotate(90deg);
+    }
+
+    .title {
+        font-size: 15px;
+        font-weight: 500;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        height: 138px;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        right: -24px;
+        left: auto;
+        border-radius: 5px;
+        background-color: $color-arrow-bg;
+        color: $color-white;
+        height: 48%;
+        padding: 7px 20px;
+        margin-top: 0;
+
+        &:hover,
+        &:focus {
+            background-color: $color-pink;
+
+            &::after {
+                color: $color-charcoal;
+            }
+        }
+
+        &::after {
+            font-size: 13px;
+            font-weight: bold;
+        }
+    }
+
+    .swiper-button-next {
+        top: 0;
+    }
+
+    .swiper-button-prev {
+        top: auto;
+        bottom: 0;
+    }
+}
