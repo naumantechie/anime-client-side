@@ -8,7 +8,9 @@ export const useFetchAnimes = (url) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(url);
+                const response = await fetch(
+                    `https://anime-app-chi.vercel.app/anime/${url}`
+                );
                 if (!response.ok) {
                     throw new Error('Failed to fetch data');
                 }

@@ -15,7 +15,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import './index.scss';
 
-export default function Carousel({ spotlightAnimes }) {
+export default function Slider({ spotlightAnimes }) {
     return (
         <div className="slide-container">
             <Swiper
@@ -25,12 +25,7 @@ export default function Carousel({ spotlightAnimes }) {
                 modules={[Autoplay, Navigation]}
             >
                 {spotlightAnimes.map((anime, index) => (
-                    <SwiperSlide
-                        key={index}
-                        style={{
-                            backgroundImage: `url(${anime.poster})`,
-                        }}
-                    >
+                    <SwiperSlide key={index}>
                         <div className="anime-meta">
                             <div className="ranking">
                                 #{anime.rank} Spotlight
@@ -88,6 +83,10 @@ export default function Carousel({ spotlightAnimes }) {
                                 </Link>
                             </div>
                         </div>
+
+                        <picture className="poster">
+                            <img src={anime.poster} alt="poster of anime" />
+                        </picture>
                     </SwiperSlide>
                 ))}
             </Swiper>

@@ -9,11 +9,7 @@ export default function AnimeInfo() {
         data: anime,
         loading,
         error,
-    } = useFetchAnimes(
-        animeID
-            ? `https://anime-app-chi.vercel.app/anime/info?id=${animeID}`
-            : null
-    );
+    } = useFetchAnimes(animeID ? `info?id=${animeID}` : null);
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error}</p>;

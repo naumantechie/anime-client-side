@@ -1,12 +1,10 @@
 'use client';
-import Carousel from '@components/Carousel/index';
-import TrendingAnimes from '@components/TrendingAnimes/index';
+import Slider from '@components/Slider/index';
+import AnimeCarousel from '@components/AnimeCarousel/index';
 import { useFetchAnimes } from '@hooks/useFetchAnimes';
 
 export default function Home() {
-    const { data, loading, error } = useFetchAnimes(
-        'https://anime-app-chi.vercel.app/anime/home'
-    );
+    const { data, loading, error } = useFetchAnimes('home');
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error}</p>;
@@ -16,8 +14,8 @@ export default function Home() {
 
     return (
         <>
-            <Carousel spotlightAnimes={spotlightAnimes} />
-            <TrendingAnimes trendingAnimes={trendingAnimes} />
+            <Slider spotlightAnimes={spotlightAnimes} />
+            <AnimeCarousel trendingAnimes={trendingAnimes} />
         </>
     );
 }

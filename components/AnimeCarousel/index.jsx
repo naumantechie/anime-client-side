@@ -7,7 +7,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import './index.scss';
 
-export default function TrendingAnimes({ trendingAnimes }) {
+export default function AnimeCarousel({ trendingAnimes }) {
     return (
         <section className="trending-section pt-10 pb-10 custom-container">
             <h2 className="section-title"> Trending </h2>
@@ -29,7 +29,7 @@ export default function TrendingAnimes({ trendingAnimes }) {
                         </div>
                         <Image
                             src={anime.poster}
-                            width="165"
+                            width="175"
                             height="236"
                             alt="anime poster"
                         />
