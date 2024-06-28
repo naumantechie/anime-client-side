@@ -1,13 +1,10 @@
-'use client';
 import Slider from '@components/Slider/index';
 import AnimeCarousel from '@components/AnimeCarousel/index';
-import { useFetchAnimes } from '@hooks/useFetchAnimes';
 
-export default function Home() {
-    const { data, loading, error } = useFetchAnimes('home');
+import { fetchAnimeData } from './action';
 
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error: {error}</p>;
+export default async function Home() {
+    const data = await fetchAnimeData('home');
 
     const spotlightAnimes = data?.spotlightAnimes || [];
     const trendingAnimes = data?.trendingAnimes || [];
