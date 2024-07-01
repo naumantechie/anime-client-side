@@ -1,3 +1,5 @@
+// 'use cleint';
+
 // import { useState, useEffect } from 'react';
 
 // export const useFetchAnimes = (url) => {
@@ -18,7 +20,7 @@
 //                 }
 //                 const result = await response.json();
 //                 setData(result);
-//                 // console.log(result);
+//                 console.log(result);
 //             } catch (err) {
 //                 setError(err.message);
 //             } finally {

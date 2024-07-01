@@ -1,5 +1,9 @@
 'use server';
 
+// export interface AnimeData {
+
+// }
+
 export async function fetchAnimeData(url) {
     try {
         const response = await fetch(
