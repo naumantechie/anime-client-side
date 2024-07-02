@@ -16,8 +16,9 @@ import {
 import 'swiper/css';
 import 'swiper/css/navigation';
 import './index.scss';
+import { SliderProps, SpotlightAnimes } from '@customTypes/types';
 
-export default function Slider({ spotlightAnimes }) {
+export default function Slider({ spotlightAnimes }: SliderProps) {
     return (
         <div className="slide-container">
             <Swiper
@@ -26,8 +27,8 @@ export default function Slider({ spotlightAnimes }) {
                 autoplay={false}
                 modules={[Autoplay, Navigation]}
             >
-                {spotlightAnimes.map((anime, index) => (
-                    <SwiperSlide key={index}>
+                {spotlightAnimes.map((anime: SpotlightAnimes) => (
+                    <SwiperSlide key={anime.id}>
                         <div className="anime-meta">
                             <div className="ranking">
                                 #{anime.rank} Spotlight
@@ -60,7 +61,7 @@ export default function Slider({ spotlightAnimes }) {
                                     />
                                     <span>{anime.episodes.sub} </span>
                                 </li>
-                                {anime.episodes.dub === '' && (
+                                {anime.episodes.dub === null && (
                                     <li>
                                         <FontAwesomeIcon icon={faMicrophone} />
                                         <span>{anime.episodes.dub}</span>

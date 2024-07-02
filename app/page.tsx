@@ -2,12 +2,17 @@ import Slider from '@components/Slider/index';
 import AnimeCarousel from '@components/AnimeCarousel/index';
 
 import { fetchAnimeData } from './action';
+import {
+    HomeAnimes,
+    SpotlightAnimes,
+    TrendingAnimes,
+} from '@customTypes/types';
 
 export default async function Home() {
-    const data = await fetchAnimeData('home');
+    const data: HomeAnimes = await fetchAnimeData('home');
 
-    const spotlightAnimes = data?.spotlightAnimes || [];
-    const trendingAnimes = data?.trendingAnimes || [];
+    const spotlightAnimes: SpotlightAnimes[] = data?.spotlightAnimes || [];
+    const trendingAnimes: TrendingAnimes[] = data?.trendingAnimes || [];
 
     return (
         <>

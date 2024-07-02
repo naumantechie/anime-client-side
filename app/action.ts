@@ -4,7 +4,7 @@
 
 // }
 
-export async function fetchAnimeData(url) {
+export async function fetchAnimeData(url: string): Promise<any> {
     try {
         const response = await fetch(
             `https://anime-app-chi.vercel.app/anime/${url}`

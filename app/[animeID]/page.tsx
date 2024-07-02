@@ -7,15 +7,20 @@ import {
     faClosedCaptioning,
     faMicrophone,
 } from '@fortawesome/free-solid-svg-icons';
+import { AnimeData, Info, MoreInfo } from '@customTypes/types';
 
-export default async function AnimeInfo({ params }) {
+interface AnimeInfoProps {
+    params: {
+        animeID: string;
+    };
+}
+
+export default async function AnimeInfo({ params }: AnimeInfoProps) {
     const { animeID } = params;
-    const data = await fetchAnimeData(`info?id=${animeID}`);
+    const data: AnimeData = await fetchAnimeData(`info?id=${animeID}`);
 
-    const info = data?.anime.info || [];
-    const moreInfo = data?.anime.moreInfo || [];
-
-    console.log(moreInfo);
+    const info = data?.anime.info || ({} as Info);
+    const moreInfo = data?.anime.moreInfo || ({} as MoreInfo);
 
     return (
         <article className="custom-container">
