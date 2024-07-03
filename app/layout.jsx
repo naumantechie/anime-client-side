@@ -1,6 +1,7 @@
-import { Poppins } from 'next/font/google';
-import '@styles/globals.css';
 import Nav from '@components/Nav/index';
+import { Poppins } from 'next/font/google';
+
+import '@styles/globals.css';
 
 export const metadata = {
     title: 'HiAnime Free Anime Streaming ',

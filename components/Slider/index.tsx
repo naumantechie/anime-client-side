@@ -1,6 +1,8 @@
 'use client';
 
-import Link from 'next/link';
+import Watch from '@components/Buttons/Watch';
+import Details from '@components/Buttons/Details';
+import { SliderProps, SpotlightAnimes } from '@customTypes/types';
 import { Autoplay, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,13 +12,12 @@ import {
     faCalendar,
     faClosedCaptioning,
     faMicrophone,
-    faAngleRight,
 } from '@fortawesome/free-solid-svg-icons';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import './index.scss';
-import { SliderProps, SpotlightAnimes } from '@customTypes/types';
+import '../Buttons/buttonStyles.scss';
 
 export default function Slider({ spotlightAnimes }: SliderProps) {
     return (
@@ -76,14 +77,8 @@ export default function Slider({ spotlightAnimes }: SliderProps) {
                             <p className="desc">{anime.description}</p>
 
                             <div className="btns">
-                                <Link href="#" className="watch">
-                                    <FontAwesomeIcon icon={faCirclePlay} />
-                                    Watch Now
-                                </Link>
-                                <Link href={`/${anime.id}`} className="details">
-                                    Details
-                                    <FontAwesomeIcon icon={faAngleRight} />
-                                </Link>
+                                <Watch />
+                                <Details animeID={anime.id} />
                             </div>
                         </div>
 

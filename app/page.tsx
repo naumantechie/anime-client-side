@@ -1,6 +1,5 @@
 import Slider from '@components/Slider/index';
 import AnimeCarousel from '@components/AnimeCarousel/index';
-
 import { fetchAnimeData } from './action';
 import {
     HomeAnimes,

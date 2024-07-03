@@ -1,13 +1,15 @@
 import Image from 'next/image';
+import Watch from '@components/Buttons/Watch';
 import { fetchAnimeData } from '@app/action';
-
-import './index.scss';
+import { AnimeData, Info, MoreInfo } from '@customTypes/types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faClosedCaptioning,
     faMicrophone,
 } from '@fortawesome/free-solid-svg-icons';
-import { AnimeData, Info, MoreInfo } from '@customTypes/types';
+
+import './index.scss';
+import '@components/Buttons/buttonStyles.scss';
 
 interface AnimeInfoProps {
     params: {
@@ -23,7 +25,10 @@ export default async function AnimeInfo({ params }: AnimeInfoProps) {
     const moreInfo = data?.anime.moreInfo || ({} as MoreInfo);
 
     return (
-        <article className="custom-container">
+        <article className="custom-container relative">
+            <div className="bg-decor">
+                <div style={{ backgroundImage: `url(${info.poster})` }}></div>
+            </div>
             <section className="ani-details-wrapper flex">
                 <div className="poster">
                     <Image
@@ -67,6 +72,10 @@ export default async function AnimeInfo({ params }: AnimeInfoProps) {
                     </div>
 
                     <p className="desc">{info.description}</p>
+
+                    <div className="btns">
+                        <Watch />
+                    </div>
                 </div>
 
                 <div className="other-ani-info">
