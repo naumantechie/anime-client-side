@@ -1,0 +1,16 @@
+.anime-grid {
+    padding-top: 70px;
+
+    .animes-list {
+        flex-wrap: wrap;
+    }
+
+    .item {
+        width: 13%;
+    }
+
+    img {
+        height: 242px;
+        object-fit: cover;
+    }
+}

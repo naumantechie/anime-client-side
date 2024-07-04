@@ -2,6 +2,7 @@
 
 import Watch from '@components/Buttons/Watch';
 import Details from '@components/Buttons/Details';
+import Badge from '@components/AnimeElements';
 import { SliderProps, SpotlightAnimes } from '@customTypes/types';
 import { Autoplay, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -20,6 +21,7 @@ import './index.scss';
 import '../Buttons/buttonStyles.scss';
 
 export default function Slider({ spotlightAnimes }: SliderProps) {
+    console.log(spotlightAnimes);
     return (
         <div className="slide-container">
             <Swiper
@@ -36,36 +38,50 @@ export default function Slider({ spotlightAnimes }: SliderProps) {
                             </div>
                             <div className="title">{anime.name}</div>
                             <ul className="other-info flex">
-                                {anime.otherInfo.map((info, index) => (
-                                    <li key={index}>
-                                        {index === 0 && (
-                                            <FontAwesomeIcon
-                                                icon={faCirclePlay}
-                                            />
-                                        )}
-                                        {index === 1 && (
-                                            <FontAwesomeIcon icon={faClock} />
-                                        )}
-                                        {index === 2 && (
-                                            <FontAwesomeIcon
-                                                icon={faCalendar}
-                                            />
-                                        )}
-                                        <span>{info}</span>
-                                    </li>
-                                ))}
+                                <li>
+                                    <FontAwesomeIcon icon={faCirclePlay} />
+                                    <span>{anime.otherInfo[0]}</span>
+                                </li>
+
+                                <li>
+                                    <FontAwesomeIcon icon={faClock} />
+                                    <span>{anime.otherInfo[1]}</span>
+                                </li>
+
+                                <li>
+                                    <FontAwesomeIcon icon={faCalendar} />
+                                    <span>{anime.otherInfo[2]}</span>
+                                </li>
+
+                                <li>
+                                    <Badge
+                                        text={anime.otherInfo[3]}
+                                        iconType={false}
+                                        hasborderRadius={true}
+                                        textColor={false}
+                                        bgColor={'pink'}
+                                    />
+                                </li>
                             </ul>
                             <ul className="episodes-info flex">
                                 <li>
-                                    <FontAwesomeIcon
-                                        icon={faClosedCaptioning}
+                                    <Badge
+                                        text={anime.episodes.sub}
+                                        iconType={faClosedCaptioning}
+                                        hasborderRadius={false}
+                                        textColor={false}
+                                        bgColor={'#blue'}
                                     />
-                                    <span>{anime.episodes.sub} </span>
                                 </li>
                                 {anime.episodes.dub === null && (
                                     <li>
-                                        <FontAwesomeIcon icon={faMicrophone} />
-                                        <span>{anime.episodes.dub}</span>
+                                        <Badge
+                                            text={anime.episodes.sub}
+                                            iconType={faMicrophone}
+                                            hasborderRadius={false}
+                                            textColor={false}
+                                            bgColor={'#blue'}
+                                        />
                                     </li>
                                 )}
                                 {anime.episodes.sub === anime.episodes.dub && (

@@ -63,9 +63,27 @@ export interface MoreInfo {
     producers: string[];
 }
 
+export interface AnimeGridData {
+    id: string;
+    name: string;
+    poster: string;
+    duration: string;
+    type: string;
+    rating: number;
+    episodes: {
+        sub: number;
+        dub: number;
+    };
+}
+
 export interface AnimeData {
     anime: {
         info: Info;
         moreInfo: MoreInfo;
     };
+    recommendedAnimes: AnimeGridData[];
+}
+
+export interface AnimeGridProps {
+    animeCategory: AnimeGridData[];
 }

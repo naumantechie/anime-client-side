@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import Watch from '@components/Buttons/Watch';
+import AnimeGrid from '@components/AnimeGrid';
 import { fetchAnimeData } from '@app/action';
-import { AnimeData, Info, MoreInfo } from '@customTypes/types';
+import { AnimeData, AnimeGridData, Info, MoreInfo } from '@customTypes/types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faClosedCaptioning,
@@ -23,13 +24,17 @@ export default async function AnimeInfo({ params }: AnimeInfoProps) {
 
     const info = data?.anime.info || ({} as Info);
     const moreInfo = data?.anime.moreInfo || ({} as MoreInfo);
+    const recommendedAnimes = data?.recommendedAnimes || ({} as AnimeGridData);
 
     return (
-        <article className="custom-container relative">
-            <div className="bg-decor">
-                <div style={{ backgroundImage: `url(${info.poster})` }}></div>
-            </div>
-            <section className="ani-details-wrapper flex">
+        <article className="custom-container">
+            <section className="ani-details-wrapper flex relative">
+                <div className="bg-decor">
+                    <div
+                        style={{ backgroundImage: `url(${info.poster})` }}
+                    ></div>
+                </div>
+
                 <div className="poster">
                     <Image
                         className="w-full"
@@ -119,7 +124,8 @@ export default async function AnimeInfo({ params }: AnimeInfoProps) {
                     </p>
                 </div>
             </section>
-            {/* Display other anime information as needed */}
+
+            <AnimeGrid animeCategory={recommendedAnimes} />
         </article>
     );
 }
