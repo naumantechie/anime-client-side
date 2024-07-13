@@ -22,20 +22,22 @@ export default function AnimeCarousel({ trendingAnimes }: AnimeCarouselProps) {
             >
                 {trendingAnimes.map((anime: TrendingAnimes) => (
                     <SwiperSlide key={anime.id}>
-                        <div className="meta">
-                            <span className="rank">
-                                {anime.rank < 10
-                                    ? `0${anime.rank}`
-                                    : anime.rank}
-                            </span>
-                            <h3 className="title">{anime.name}</h3>
-                        </div>
-                        <Image
-                            src={anime.poster}
-                            width="175"
-                            height="236"
-                            alt="anime poster"
-                        />
+                        <Link href={anime.id}>
+                            <div className="meta">
+                                <span className="rank">
+                                    {anime.rank < 10
+                                        ? `0${anime.rank}`
+                                        : anime.rank}
+                                </span>
+                                <h3 className="title">{anime.name}</h3>
+                            </div>
+                            <Image
+                                src={anime.poster}
+                                width="175"
+                                height="236"
+                                alt="anime poster"
+                            />
+                        </Link>
                     </SwiperSlide>
                 ))}
             </Swiper>
