@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import Watch from '@components/Buttons/Watch';
+import Badge from '@components/AnimeElements';
 import AnimeGrid from '@components/AnimeGrid';
 import { fetchAnimeData } from '@app/action';
 import { AnimeData, AnimeGridData, Info, MoreInfo } from '@customTypes/types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faClosedCaptioning,
     faMicrophone,
@@ -24,7 +24,7 @@ export default async function AnimeInfo({ params }: AnimeInfoProps) {
 
     const info = data?.anime.info || ({} as Info);
     const moreInfo = data?.anime.moreInfo || ({} as MoreInfo);
-    const recommendedAnimes = data?.recommendedAnimes || ({} as AnimeGridData);
+    const recommendedAnimes: AnimeGridData[] = data?.recommendedAnimes || [];
 
     return (
         <article className="custom-container">
@@ -51,18 +51,30 @@ export default async function AnimeInfo({ params }: AnimeInfoProps) {
                     <div className="stats flex">
                         <ul className="cat-1">
                             <li className="rating">
-                                <span>{info.stats.rating}</span>
+                                <Badge
+                                    text={info.stats.rating}
+                                    bgColor="white"
+                                />
                             </li>
                             <li className="quality">
-                                <span>{info.stats.quality}</span>
+                                <Badge
+                                    text={info.stats.quality}
+                                    bgColor="pink"
+                                />
                             </li>
                             <li className="sub">
-                                <FontAwesomeIcon icon={faClosedCaptioning} />
-                                <span>{info.stats.episodes.sub}</span>
+                                <Badge
+                                    text={info.stats.episodes.sub}
+                                    iconType={faClosedCaptioning}
+                                    bgColor="green"
+                                />
                             </li>
                             <li className="dub">
-                                <FontAwesomeIcon icon={faMicrophone} />
-                                <span>{info.stats.episodes.dub}</span>
+                                <Badge
+                                    text={info.stats.episodes.dub}
+                                    iconType={faMicrophone}
+                                    bgColor="blue"
+                                />
                             </li>
                         </ul>
 
