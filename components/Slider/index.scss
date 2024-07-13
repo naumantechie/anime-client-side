@@ -27,12 +27,6 @@
         margin-bottom: 15px;
 
         li {
-            svg {
-                width: 13px;
-                height: 13px;
-                margin-right: 5px;
-                vertical-align: baseline;
-            }
             &:nth-child(4) {
                 span {
                     background-color: $color-pink;
@@ -44,42 +38,22 @@
                 }
             }
         }
+
+        svg {
+            width: auto;
+            height: 14px;
+            margin-right: 8px;
+        }
     }
 
     .episodes-info {
         gap: 3px;
+        border-radius: 3px;
+        overflow: hidden;
         margin-bottom: 18px;
 
         li {
-            padding: 1px 5px;
-            font-size: 12px;
-            font-weight: 600;
-
-            svg {
-                width: 11px;
-                height: 11px;
-                margin-right: 5px;
-            }
-            &:nth-child(1) {
-                background-color: $color-green;
-                color: $color-charcoal;
-                border-top-left-radius: 3px;
-                border-bottom-left-radius: 3px;
-            }
-
-            &:nth-child(2) {
-                background-color: $color-blue;
-                color: $color-charcoal;
-            }
-
-            &:nth-child(3) {
-                background-color: $color-gray-dark;
-            }
-
-            &:last-child {
-                border-top-right-radius: 3px;
-                border-bottom-right-radius: 3px;
-            }
+            display: contents;
         }
     }
 

@@ -21,7 +21,6 @@ import './index.scss';
 import '../Buttons/buttonStyles.scss';
 
 export default function Slider({ spotlightAnimes }: SliderProps) {
-    console.log(spotlightAnimes);
     return (
         <div className="slide-container">
             <Swiper
@@ -56,39 +55,27 @@ export default function Slider({ spotlightAnimes }: SliderProps) {
                                 <li>
                                     <Badge
                                         text={anime.otherInfo[3]}
-                                        iconType={false}
                                         hasborderRadius={true}
-                                        textColor={false}
                                         bgColor={'pink'}
                                     />
                                 </li>
                             </ul>
-                            <ul className="episodes-info flex">
+                            <ul className="episodes-info inline-flex">
                                 <li>
                                     <Badge
                                         text={anime.episodes.sub}
                                         iconType={faClosedCaptioning}
-                                        hasborderRadius={false}
-                                        textColor={false}
-                                        bgColor={'#blue'}
+                                        bgColor={'green'}
                                     />
                                 </li>
-                                {anime.episodes.dub === null && (
-                                    <li>
-                                        <Badge
-                                            text={anime.episodes.sub}
-                                            iconType={faMicrophone}
-                                            hasborderRadius={false}
-                                            textColor={false}
-                                            bgColor={'#blue'}
-                                        />
-                                    </li>
-                                )}
-                                {anime.episodes.sub === anime.episodes.dub && (
-                                    <li>
-                                        <span>{anime.episodes.sub}</span>
-                                    </li>
-                                )}
+
+                                <li>
+                                    <Badge
+                                        text={anime.episodes.dub}
+                                        iconType={faMicrophone}
+                                        bgColor={'blue'}
+                                    />
+                                </li>
                             </ul>
                             <p className="desc">{anime.description}</p>
 
